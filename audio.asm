@@ -17,6 +17,9 @@ SECTION "Sound Effects 1", ROMX
 
 INCLUDE "audio/noise_wave_common.asm"
 
+IF HEADROOM_STRIP_CORE_SFX
+INCLUDE "audio/headroom/sfx1_stubs.asm"
+ELSE
 INCLUDE "audio/sfx/start_menu.asm"
 INCLUDE "audio/sfx/pokeflute.asm"
 INCLUDE "audio/sfx/cut.asm"
@@ -53,6 +56,7 @@ INCLUDE "audio/sfx/withdraw_deposit.asm"
 INCLUDE "audio/sfx/safari_zone_pa.asm"
 
 INCLUDE "audio/cry_common.asm"
+ENDC
 
 
 SECTION "Audio Engine 1", ROMX
@@ -96,10 +100,14 @@ INCLUDE "audio/music/gym.asm"
 INCLUDE "audio/music/pokecenter.asm"
 ENDC
 
+IF HEADROOM_STRIP_CORE_SFX
+INCLUDE "audio/headroom/music1_sfx_stubs.asm"
+ELSE
 INCLUDE "audio/sfx/get_item1.asm"
 INCLUDE "audio/sfx/pokedex_rating.asm"
 INCLUDE "audio/sfx/get_item2.asm"
 INCLUDE "audio/sfx/get_key_item.asm"
+ENDC
 
 
 ; Audio Engine 2 (Bank $08)
@@ -201,9 +209,13 @@ ENDC
 
 SECTION "Music 2", ROMX
 
+IF HEADROOM_STRIP_CORE_SFX
+INCLUDE "audio/headroom/music2_sfx_stubs.asm"
+ELSE
 INCLUDE "audio/sfx/pokeflute_ch5_ch6.asm"
 IF !HEADROOM_STRIP_UNUSED_AUDIO
 INCLUDE "audio/sfx/unused_fanfare.asm"
+ENDC
 ENDC
 IF HEADROOM_STRIP_OPTIONAL_BATTLE_MUSIC
 INCLUDE "audio/headroom/music2_stubs.asm"
@@ -216,9 +228,11 @@ INCLUDE "audio/music/defeated_trainer.asm"
 INCLUDE "audio/music/defeated_wild_mon.asm"
 INCLUDE "audio/music/defeated_gym_leader.asm"
 ENDC
+IF !HEADROOM_STRIP_CORE_SFX
 INCLUDE "audio/sfx/level_up.asm"
 INCLUDE "audio/sfx/get_item2.asm"
 INCLUDE "audio/sfx/caught_mon.asm"
+ENDC
 
 
 ; Audio Engine 3 (Bank $1F)
@@ -325,7 +339,11 @@ INCLUDE "audio/music/jigglypuff_song.asm"
 INCLUDE "audio/music/hall_of_fame.asm"
 ENDC
 
+IF HEADROOM_STRIP_CORE_SFX
+INCLUDE "audio/headroom/music3_sfx_stubs.asm"
+ELSE
 INCLUDE "audio/sfx/get_item1.asm"
 INCLUDE "audio/sfx/pokedex_rating.asm"
 INCLUDE "audio/sfx/get_item2.asm"
 INCLUDE "audio/sfx/get_key_item.asm"
+ENDC

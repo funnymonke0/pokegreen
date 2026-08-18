@@ -175,6 +175,65 @@ SFX3_FILES = [
     "audio/sfx/shooting_star.asm",
 ]
 
+SFX1_FILES = [
+    "audio/sfx/start_menu.asm",
+    "audio/sfx/pokeflute.asm",
+    "audio/sfx/cut.asm",
+    "audio/sfx/go_inside.asm",
+    "audio/sfx/swap.asm",
+    "audio/sfx/tink.asm",
+    "audio/sfx/59.asm",
+    "audio/sfx/purchase.asm",
+    "audio/sfx/collision.asm",
+    "audio/sfx/go_outside.asm",
+    "audio/sfx/press_ab.asm",
+    "audio/sfx/save.asm",
+    "audio/sfx/heal_hp.asm",
+    "audio/sfx/poisoned.asm",
+    "audio/sfx/heal_ailment.asm",
+    "audio/sfx/trade_machine.asm",
+    "audio/sfx/turn_on_pc.asm",
+    "audio/sfx/turn_off_pc.asm",
+    "audio/sfx/enter_pc.asm",
+    "audio/sfx/shrink.asm",
+    "audio/sfx/switch.asm",
+    "audio/sfx/healing_machine.asm",
+    "audio/sfx/teleport_exit1.asm",
+    "audio/sfx/teleport_enter1.asm",
+    "audio/sfx/teleport_exit2.asm",
+    "audio/sfx/ledge.asm",
+    "audio/sfx/teleport_enter2.asm",
+    "audio/sfx/fly.asm",
+    "audio/sfx/denied.asm",
+    "audio/sfx/arrow_tiles.asm",
+    "audio/sfx/push_boulder.asm",
+    "audio/sfx/ss_anne_horn.asm",
+    "audio/sfx/withdraw_deposit.asm",
+    "audio/sfx/safari_zone_pa.asm",
+]
+
+MUSIC1_SFX_FILES = [
+    "audio/sfx/get_item1.asm",
+    "audio/sfx/pokedex_rating.asm",
+    "audio/sfx/get_item2.asm",
+    "audio/sfx/get_key_item.asm",
+]
+
+MUSIC2_SFX_FILES = [
+    "audio/sfx/pokeflute_ch5_ch6.asm",
+    "audio/sfx/unused_fanfare.asm",
+    "audio/sfx/level_up.asm",
+    "audio/sfx/get_item2.asm",
+    "audio/sfx/caught_mon.asm",
+]
+
+MUSIC3_SFX_FILES = [
+    "audio/sfx/get_item1.asm",
+    "audio/sfx/pokedex_rating.asm",
+    "audio/sfx/get_item2.asm",
+    "audio/sfx/get_key_item.asm",
+]
+
 OUT_DIR = Path("audio/headroom")
 
 
@@ -236,6 +295,7 @@ def cry_files() -> list[str]:
 
 
 def main() -> int:
+    all_sfx1 = SFX1_FILES + cry_files()
     all_sfx2 = SFX2_FILES + cry_files()
     all_sfx3 = SFX3_FILES + cry_files()
 
@@ -243,14 +303,22 @@ def main() -> int:
     write_stub(OUT_DIR / "music2_stubs.asm", MUSIC2_FILES)
     write_stub(OUT_DIR / "music3_stubs.asm", MUSIC3_FILES)
     write_stub(OUT_DIR / "audio3_stubs.asm", AUDIO3_FILES)
+    write_stub(OUT_DIR / "sfx1_stubs.asm", all_sfx1)
     write_stub(OUT_DIR / "sfx2_stubs.asm", all_sfx2)
     write_stub(OUT_DIR / "sfx3_stubs.asm", all_sfx3)
+    write_stub(OUT_DIR / "music1_sfx_stubs.asm", MUSIC1_SFX_FILES)
+    write_stub(OUT_DIR / "music2_sfx_stubs.asm", MUSIC2_SFX_FILES)
+    write_stub(OUT_DIR / "music3_sfx_stubs.asm", MUSIC3_SFX_FILES)
     print("wrote audio/headroom/music1_stubs.asm")
     print("wrote audio/headroom/music2_stubs.asm")
     print("wrote audio/headroom/music3_stubs.asm")
     print("wrote audio/headroom/audio3_stubs.asm")
+    print("wrote audio/headroom/sfx1_stubs.asm")
     print("wrote audio/headroom/sfx2_stubs.asm")
     print("wrote audio/headroom/sfx3_stubs.asm")
+    print("wrote audio/headroom/music1_sfx_stubs.asm")
+    print("wrote audio/headroom/music2_sfx_stubs.asm")
+    print("wrote audio/headroom/music3_sfx_stubs.asm")
     return 0
 
 

@@ -69,7 +69,8 @@ RGBGFXFLAGS  ?= -Weverything
 	headroom-stubs \
 	headroom-default \
 	headroom-unused-audio \
-	headroom-aggressive-audio
+	headroom-aggressive-audio \
+	headroom-extreme-audio
 
 all: $(roms)
 red:        pokered.gb
@@ -127,6 +128,9 @@ headroom-unused-audio:
 
 headroom-aggressive-audio: headroom-stubs
 	python3 tools/headroom_profile.py --profile aggressive-audio
+
+headroom-extreme-audio: headroom-stubs
+	python3 tools/headroom_profile.py --profile extreme-audio
 
 
 RGBASMFLAGS += -Q8 -P includes.asm
