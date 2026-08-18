@@ -65,8 +65,10 @@ RGBGFXFLAGS  ?= -Weverything
 	compare \
 	tools \
 	repoint-text \
+	headroom-stubs \
 	headroom-default \
-	headroom-unused-audio
+	headroom-unused-audio \
+	headroom-aggressive-audio
 
 all: $(roms)
 red:        pokered.gb
@@ -110,11 +112,17 @@ tools:
 repoint-text:
 	python3 tools/repoint_text.py --apply
 
+headroom-stubs:
+	python3 tools/generate_audio_headroom_stubs.py
+
 headroom-default:
 	python3 tools/headroom_profile.py --profile default
 
 headroom-unused-audio:
 	python3 tools/headroom_profile.py --profile unused-audio
+
+headroom-aggressive-audio: headroom-stubs
+	python3 tools/headroom_profile.py --profile aggressive-audio
 
 
 RGBASMFLAGS += -Q8 -P includes.asm
