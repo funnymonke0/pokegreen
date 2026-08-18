@@ -16,18 +16,15 @@ CeladonMart1FReceptionistText:
 	done
 
 CeladonMart1FDirectorySignText:
-	text "１かい<⋯>サービス·カウンター"
-
-	para "２かい<⋯><TRAINER>ズ·マーケット"
-
-	para "３かい<⋯>テレビ　ゲーム　ショップ"
-
-	para "４かい<⋯>ワイズマン·ギフト"
-
-	para "５かい<⋯>ドラッグ　ストア"
-
-	para "おくじょう<⋯>じどう　はんばいき"
-	done
+	text_asm
+	ld hl, RelocatedText_CeladonMart1FDirectorySignText
+	ld a, BANK(RelocatedText_CeladonMart1FDirectorySignText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 CeladonMart1FCurrentFloorSignText:
 	text "１かい<⋯>サービス·カウンター"

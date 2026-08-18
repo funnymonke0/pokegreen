@@ -8,18 +8,15 @@ VermilionMart_TextPointers:
 	dw_const VermilionMartCooltrainerFText, TEXT_VERMILIONMART_COOLTRAINER_F
 
 VermilionMartCooltrainerMText:
-	text "よのなか　には　#で"
-	line "わるだくみを　する　やつらも　いる"
-
-	para "#を　たかく　うりさばいたり"
-	line "ときには　にんきがない　とか"
-
-	para "やくに　たたない　という　りゆうで"
-	line "ころして　しまったり"
-
-	para "そういう　わるい　こと　ばかりする"
-	line "あつまりが　ロケットだんさ"
-	done
+	text_asm
+	ld hl, RelocatedText_VermilionMartCooltrainerMText
+	ld a, BANK(RelocatedText_VermilionMartCooltrainerMText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 VermilionMartCooltrainerFText:
 	text "#は　つかう　ひとに　よって"

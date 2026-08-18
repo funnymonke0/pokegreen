@@ -8,15 +8,15 @@ SSAnne1F_TextPointers:
 	dw_const SSAnne1FSailorText, TEXT_SSANNE1F_SAILOR
 
 SSAnne1FWaiterText:
-	text "ボン　ジュール！"
-	line "わたしは　このふねの　ボーイです"
-
-	para "ごようを　なんなりと"
-	line "おもうしつけ　ください！"
-
-	para "<⋯>　<⋯>　<⋯>"
-	line "<⋯>　むくちな　かた　ですね"
-	done
+	text_asm
+	ld hl, RelocatedText_SSAnne1FWaiterText
+	ld a, BANK(RelocatedText_SSAnne1FWaiterText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 SSAnne1FSailorText:
 	text "この　ふねの　おきゃくは"

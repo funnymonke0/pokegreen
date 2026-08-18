@@ -362,38 +362,24 @@ ChampionsRoomOakCongratulatesPlayerText:
 	done
 
 ChampionsRoomOakDisappointedWithRivalText:
-	text "オーキド『<RIVAL><⋯>！"
-	line "<⋯>　ざんねんだ！"
-
-	para "おまえが　してんのうに　かったと"
-	line "きいて　ここに　とんで　きたのに"
-
-	para "#　リーグに　ついて　みたら"
-	line "おまえは　まけとった！"
-
-	para "<RIVAL>よ<⋯>！"
-	line "なぜ　まけたのか　わかるか？"
-	cont "<⋯>　<⋯>　<⋯>"
-
-	para "おまえが　#　たちへの"
-	line "しんらいと　あいじょうを"
-	cont "わすれとる　からだ！"
-
-	para "それでは　どんなに　がんばっても"
-	line "トップ　には　たてんぞ！"
-	done
+	text_asm
+	ld hl, RelocatedText_ChampionsRoomOakDisappointedWithRivalText
+	ld a, BANK(RelocatedText_ChampionsRoomOakDisappointedWithRivalText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 ChampionsRoomOakComeWithMeText:
-	text "オーキド『<PLAYER>！"
+	text_asm
+	ld hl, RelocatedText_ChampionsRoomOakComeWithMeText
+	ld a, BANK(RelocatedText_ChampionsRoomOakComeWithMeText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
-	para "#　リーグを　せいは　したのは"
-	line "ひとりの　ちから　では　ないことを"
-	cont "<⋯>　おまえは　わかっとるな！"
-
-	para "<PLAYER>と　#の"
-	line "ぜつみょうな　コンビネーション！"
-	cont "みごと　だったぞ！"
-
-	para "それでは<⋯>　<PLAYER>！"
-	line "わたしに　ついて　きなさい！"
-	done

@@ -69,24 +69,15 @@ CinnabarLabMetronomeRoomScientist2Text:
 	done
 
 CinnabarLabMetronomeRoomPCText:
-	text "<PC>に"
-	line "でんしメールが　とどいてる！"
-
-	para "<⋯>　<⋯>　<⋯>"
-
-	para "でんせつの　とり#は"
-	line "３しゅるい<⋯>　ファイヤー"
-	cont "サンダー　フリーザー<⋯>"
-	cont "しかし　どこに　いるのか"
-	cont "まだ　わかって　ません"
-
-	para "こんど　ハナダ　どうくつに"
-	line "ちょうさに　いきます"
-	cont "<⋯>　まずは　ほうこく　まで"
-	cont "#　ちょうさ　たい"
-
-	para "<⋯>　<⋯>　<⋯>"
-	done
+	text_asm
+	ld hl, RelocatedText_CinnabarLabMetronomeRoomPCText
+	ld a, BANK(RelocatedText_CinnabarLabMetronomeRoomPCText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 CinnabarLabMetronomeRoomAmberPipeText:
 	text "コハクの　パイプが　ある！"

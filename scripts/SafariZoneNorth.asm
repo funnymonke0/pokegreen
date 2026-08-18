@@ -27,14 +27,15 @@ SafariZoneNorthSignText:
 	done
 
 SafariZoneNorthTrainerTips2Text:
-	text "<⋯>　おとくな　けいじばん！"
-
-	para "#は　くさむらの　なかに"
-	line "このんで　かくれる！"
-
-	para "なかなか　みつからない　ときは"
-	line "くさむらを　ジグザグに　あるこう！"
-	done
+	text_asm
+	ld hl, RelocatedText_SafariZoneNorthTrainerTips2Text
+	ld a, BANK(RelocatedText_SafariZoneNorthTrainerTips2Text)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 SafariZoneNorthTrainerTips3Text:
 	text "<⋯>　おとくな　けいじばん！"

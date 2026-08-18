@@ -17,15 +17,15 @@ FuchsiaBillsGrandpasHouseMiddleAgedWomanText:
 	done
 
 FuchsiaBillsGrandpasHouseBillsGrandpaText:
-	text "おや？　あんた"
-	line "マサキの　ことを　しっとるのかね？"
-
-	para "マサキは　わしの　まごじゃ！"
-
-	para "ちいさい　ころから"
-	line "ものを　あつめるのが　すきな"
-	cont "こども　じゃった！"
-	done
+	text_asm
+	ld hl, RelocatedText_FuchsiaBillsGrandpasHouseBillsGrandpaText
+	ld a, BANK(RelocatedText_FuchsiaBillsGrandpasHouseBillsGrandpaText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 FuchsiaBillsGrandpasHouseYoungsterText:
 	text "マサキ　にいちゃん"

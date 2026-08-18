@@ -15,9 +15,13 @@ PewterSpeechHouseGamblerText:
 	done
 
 PewterSpeechHouseYoungsterText:
-	text "ねむり　どく　やけど　マヒ<⋯>"
-	line "#の　たいちょうが　わるいと"
-	cont "つかまえ　やすいよ"
-	cont "でも<⋯>　かならず　とれる"
-	cont "わけじゃ　ないみたい"
-	done
+	text_asm
+	ld hl, RelocatedText_PewterSpeechHouseYoungsterText
+	ld a, BANK(RelocatedText_PewterSpeechHouseYoungsterText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
+

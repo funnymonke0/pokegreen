@@ -10,26 +10,26 @@ CeladonMart5F_TextPointers:
 	dw_const CeladonMart5FCurrentFloorSignText, TEXT_CELADONMART5F_CURRENT_FLOOR_SIGN
 
 CeladonMart5FGentlemanText:
-	text "#の　のうりょくを　あげる"
-	line "アイテムは　ここでしか　かえない"
-
-	para "リゾチウムは"
-	line "とくしゅ　のうりょくを　アップ"
-
-	para "インドメタシンは"
-	line "すばやさを　アップ　させるのだ"
-	done
+	text_asm
+	ld hl, RelocatedText_CeladonMart5FGentlemanText
+	ld a, BANK(RelocatedText_CeladonMart5FGentlemanText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 CeladonMart5FSailorText:
-	text "#の　のうりょくを　あげる"
-	line "アイテムを　かいに　きたんだ！"
-
-	para "タウリンは"
-	line "こうげき　りょく　アップ！"
-
-	para "ブロムヘキシンは"
-	line "ぼうぎょ　りょく　アップ　だぜ！"
-	done
+	text_asm
+	ld hl, RelocatedText_CeladonMart5FSailorText
+	ld a, BANK(RelocatedText_CeladonMart5FSailorText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 CeladonMart5FCurrentFloorSignText:
 	text "５かい<⋯>ドラッグ　ストア"

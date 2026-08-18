@@ -1343,16 +1343,15 @@ OaksLabOakIHaveARequestText:
 	done
 
 OaksLabOakMyInventionPokedexText:
-	text "つくえの　うえに　あるのは"
-	line "わしが　つくった　#ずかん！"
-
-	para "みつけた　#の　データが"
-	line "じどうてきに　かきこまれて"
-	cont "ページが　ふえて　いく　という"
-
-	para "たいへん　ハイテクな"
-	line "ずかん　なのじゃ！"
-	done
+	text_asm
+	ld hl, RelocatedText_OaksLabOakMyInventionPokedexText
+	ld a, BANK(RelocatedText_OaksLabOakMyInventionPokedexText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 OaksLabOakGotPokedexText:
 	text "オーキド『<PLAYER>　<RIVAL>"
@@ -1364,41 +1363,26 @@ OaksLabOakGotPokedexText:
 	text_end
 
 OaksLabOakThatWasMyDreamText:
-	text "この　せかいの　すべての"
-	line "#を　きろくした"
-	cont "かんぺきな　ずかんを　つくること！"
-
-	para "それが　わしの　ゆめ　だった！"
-
-	para "しかし　わしも　もう　ジジイ！"
-	line "そこまで　ムリは　できん！"
-
-	para "そこで　おまえ　たちには"
-	line "わしの　かわりに"
-	cont "ゆめを　はたして　ほしいのじゃ！"
-
-	para "さあ　ふたりとも"
-	line "さっそく　しゅっぱつ　してくれい！"
-
-	para "これは　#の　れきしに　のこる"
-	line "いだいな　しごとじゃー！"
-	done
+	text_asm
+	ld hl, RelocatedText_OaksLabOakThatWasMyDreamText
+	ld a, BANK(RelocatedText_OaksLabOakThatWasMyDreamText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 OaksLabRivalLeaveItAllToMeText:
-	text "<RIVAL>『よーし！　じいさん！"
-	line "ぜんぶ　おれに　まかせなー！"
-
-	para "<PLAYER>！"
-	line "ざんねんだが　おまえの　でばんは"
-	cont "まったく　ねーぜ！"
-
-	para "そうだ！　うちの　ねえちゃん　から"
-	line "タウンマップを　かりて　いこう！"
-
-	para "<PLAYER>　には　かさない　ように"
-	line "ねえちゃんに　いって　おくから"
-	cont "おれんちへ　きても　むだ　だからな！"
-	done
+	text_asm
+	ld hl, RelocatedText_OaksLabRivalLeaveItAllToMeText
+	ld a, BANK(RelocatedText_OaksLabRivalLeaveItAllToMeText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 OaksLabScientistText:
 	text_asm

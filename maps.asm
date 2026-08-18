@@ -1217,3 +1217,7 @@ INCLUDE "data/maps/headers/AgathasRoom.asm"
 INCLUDE "scripts/AgathasRoom.asm"
 INCLUDE "data/maps/objects/AgathasRoom.asm"
 AgathasRoom_Blocks: INCBIN "maps/AgathasRoom.blk"
+
+SECTION "Relocated Map Text", ROMX
+
+INCLUDE "scripts/text_relocations.asm"

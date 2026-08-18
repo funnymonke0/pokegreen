@@ -174,16 +174,15 @@ VermilionGymLTSurgeText:
 	done
 
 VermilionGymLTSurgeThunderBadgeInfoText:
-	text "オレンジ　バッジ　もってる　だけで"
-	line "ユーの　#　スピード　アップ"
-
-	para "アーンド！　そらをとぶ　わざは"
-	line "ファイト　ない　ときも"
-	cont "つかえる　ように　なるヨ！"
-
-	para "ユーは　スペシャル！"
-	line "これは　ミーの　きもちネ！"
-	done
+	text_asm
+	ld hl, RelocatedText_VermilionGymLTSurgeThunderBadgeInfoText
+	ld a, BANK(RelocatedText_VermilionGymLTSurgeThunderBadgeInfoText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 VermilionGymLTSurgeReceivedTM24Text:
 	text "<PLAYER>は　マチスから"

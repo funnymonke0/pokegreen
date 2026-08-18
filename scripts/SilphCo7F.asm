@@ -527,22 +527,15 @@ SilphCo7FRivalText:
 	done
 
 SilphCo7FRivalWaitedHereText:
-	text "<RIVAL>『ひゃはは！"
-	line "ここで　まってれば"
-	cont "くるんじゃねえかと　おもったのさ"
-
-	para "しかし　<ROCKET>　あいてに"
-	line "てこずってる　みたいだな！"
-	cont "ま<⋯>　おれさまには"
-	cont "かんけいの　ないこと　だけど！"
-
-	para "ヤマブキ　シティで　<PLAYER>が"
-	line "あるいてんのを　ちょこっと"
-	cont "みかけた　もの　だからさ"
-
-	para "すこしは<⋯>　つよくなったのか"
-	line "なあーんちゃって　おもってさあ！"
-	done
+	text_asm
+	ld hl, RelocatedText_SilphCo7FRivalWaitedHereText
+	ld a, BANK(RelocatedText_SilphCo7FRivalWaitedHereText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 SilphCo7FRivalDefeatedText:
 	text "おう　おうッ！"
@@ -559,27 +552,13 @@ SilphCo7FRivalVictoryText:
 	prompt
 
 SilphCo7FRivalGoodLuckToYouText:
-	text "ほんじゃま　<PLAYER>！"
+	text_asm
+	ld hl, RelocatedText_SilphCo7FRivalGoodLuckToYouText
+	ld a, BANK(RelocatedText_SilphCo7FRivalGoodLuckToYouText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
-	para "おれさまは"
-	line "ひとあし　さきに　いくぜ！"
-
-	para "#ずかん　やってる　うちに"
-	line "どういう　#が　つよい　とか"
-	cont "なにに　しんか　するか　とか"
-	cont "わかって　きちゃったんだよねえ！"
-	cont "おれって　てんさい？"
-
-	para "ま<⋯>　そういう　ことで"
-	line "これからは"
-	cont "#　リーグの　してんのうを"
-	cont "ばっさ　ばっさと　たおして"
-
-	para "さいきょうの　<TRAINER>に"
-	line "なってやろう　と　きめたのさ！"
-
-	para "<PLAYER>も"
-	line "せいぜい　がんばって　くれい"
-	cont "じゃあな！"
-	cont "バイビー！"
-	done

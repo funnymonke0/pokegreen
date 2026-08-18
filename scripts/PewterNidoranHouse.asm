@@ -25,15 +25,13 @@ PewterNidoranHouseLittleBoyText:
 	done
 
 PewterNidoranHouseMiddleAgedManText:
-	text "うちの　#　よそもの"
-	line "だから　き　むずかしいよ"
+	text_asm
+	ld hl, RelocatedText_PewterNidoranHouseMiddleAgedManText
+	ld a, BANK(RelocatedText_PewterNidoranHouseMiddleAgedManText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
-	para "よそもの　ってのは　ひとと"
-	line "こうかん　した　#だよ"
-
-	para "そだつのは　はやいが"
-	line "ちからのない　<TRAINER>の"
-	cont "いうことは　きかん！"
-
-	para "バッジさえ　あれば<⋯>"
-	done

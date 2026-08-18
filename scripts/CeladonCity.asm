@@ -45,13 +45,15 @@ CeladonCityGirlText:
 	done
 
 CeladonCityGramps2Text:
-	text "トホホ<⋯>！"
-	line "スロットで　また　まけた！"
-
-	para "コインが　たまったら"
-	line "けいひんに　した　ほうが　ええと"
-	cont "わかって　おったのに<⋯>！"
-	done
+	text_asm
+	ld hl, RelocatedText_CeladonCityGramps2Text
+	ld a, BANK(RelocatedText_CeladonCityGramps2Text)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 CeladonCityGramps3Text:
 	text_asm
@@ -136,17 +138,15 @@ CeladonCityRocket2Text:
 	done
 
 CeladonCityTrainerTips1Text:
-	text "<⋯>　おとくな　けいじばん！"
-
-	para "ヨクアタールは　わざの"
-	line "めいちゅう　りつ　を　あげる！"
-
-	para "クリティカッターは　わざが"
-	line "きゅうしょに　あたり　やすくなる"
-
-	para "アイテムの　おかいもとめは"
-	line "タマムシ　デパートで　どうぞ！"
-	done
+	text_asm
+	ld hl, RelocatedText_CeladonCityTrainerTips1Text
+	ld a, BANK(RelocatedText_CeladonCityTrainerTips1Text)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 CeladonCitySignText:
 	text "ここは　タマムシ　シティ"
@@ -169,17 +169,15 @@ CeladonCityDeptStoreSignText:
 	done
 
 CeladonCityTrainerTips2Text:
-	text "<⋯>　おとくな　けいじばん！"
-
-	para "エフェクトガードは"
-	line "ほのお　や　みず　でんき　など"
-
-	para "とくしゅな　こうげき　から"
-	line "#を　まもって　くれる！"
-
-	para "アイテムの　おかいもとめは"
-	line "タマムシ　デパートで　どうぞ！"
-	done
+	text_asm
+	ld hl, RelocatedText_CeladonCityTrainerTips2Text
+	ld a, BANK(RelocatedText_CeladonCityTrainerTips2Text)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 CeladonCityPrizeExchangeSignText:
 	text "コインを　ビッグな　けいひんに！"

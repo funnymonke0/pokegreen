@@ -141,19 +141,15 @@ RocketHideoutB4FGiovanniText:
 	prompt
 
 RocketHideoutB4FGiovanniHopeWeMeetAgainText:
-	text "<⋯>　きみは　とても　だいじに"
-	line "#を　そだてて　いるな"
-
-	para "そんな　こどもに"
-	line "わたしの　かんがえは"
-	cont "とても　りかい　できないだろう"
-
-	para "　<⋯>！"
-	line "ここは　いちど　みを　ひこう！"
-
-	para "きみとは　また　どこかで"
-	line "たたかいたい　ものだ<⋯>！"
-	done
+	text_asm
+	ld hl, RelocatedText_RocketHideoutB4FGiovanniHopeWeMeetAgainText
+	ld a, BANK(RelocatedText_RocketHideoutB4FGiovanniHopeWeMeetAgainText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 RocketHideoutB4FRocket1Text:
 	text_asm

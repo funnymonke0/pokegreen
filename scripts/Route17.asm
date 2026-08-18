@@ -252,13 +252,15 @@ Route17NoticeSign1Text:
 	done
 
 Route17TrainerTips1Text:
-	text "<⋯>　おとくな　けいじばん！"
-
-	para "おなじ　#　おなじ　レベルでも"
-	line "とるたびに　パラメータが　すこし"
-	cont "ちがってて<⋯>　そだつと"
-	cont "ちがいが　おおきく　なる！"
-	done
+	text_asm
+	ld hl, RelocatedText_Route17TrainerTips1Text
+	ld a, BANK(RelocatedText_Route17TrainerTips1Text)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 Route17TrainerTips2Text:
 	text "<⋯>　おとくな　けいじばん！"

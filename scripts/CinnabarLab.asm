@@ -11,13 +11,15 @@ CinnabarLab_TextPointers:
 	dw_const CinnabarLabTestingRoomSignText, TEXT_CINNABARLAB_TESTING_ROOM_SIGN
 
 CinnabarLabFishingGuruText:
-	text "ここでは　まいにち"
-	line "#の　けんきゅうを　してます"
-
-	para "あと　めずらしい　#などを"
-	line "もちこんでくる　おきゃくさんも"
-	cont "いらっしゃい　ますね"
-	done
+	text_asm
+	ld hl, RelocatedText_CinnabarLabFishingGuruText
+	ld a, BANK(RelocatedText_CinnabarLabFishingGuruText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 CinnabarLabPhotoText:
 	text "グレン　ラボラトリーの　そうせつしゃ"

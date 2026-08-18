@@ -108,25 +108,13 @@ HallOfFame_TextPointers:
 	dw_const HallOfFameOakText, TEXT_HALLOFFAME_OAK
 
 HallOfFameOakText:
-	text "オーキド『<⋯>　おほんッ！"
-	line "おめでとう！　<PLAYER>！"
+	text_asm
+	ld hl, RelocatedText_HallOfFameOakText
+	ld a, BANK(RelocatedText_HallOfFameOakText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
-	para "ここは<⋯>"
-	line "れきだいの　#　リーグ"
-	cont "<TRAINER>の　もとで<⋯>"
-
-	para "かつやく　した　#　たちを"
-	line "えいえんに　きろく　して"
-	cont "たたえる　フロア　である！"
-
-	para "#　<TRAINER>は　ここに"
-	line "きろく　される　よろこびを"
-	cont "でんどういり　と　よんで　いる！"
-
-	para "<PLAYER>！　おまえは"
-	line "はげしい　たたかいの　すえ"
-	cont "リーグ　チャンピオンと　なった！"
-
-	para "ここに　<PLAYER>の　なまえと"
-	line "#　たちを　きろく　しよう！"
-	done

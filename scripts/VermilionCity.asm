@@ -242,13 +242,15 @@ VermilionCitySailor1Text:
 	done
 
 VermilionCityGambler2Text:
-	text "わし　じぬし！"
-	line "この　しかくの　ばしょ"
-	cont "ぜーんぶ　わしの　とち！"
-
-	para "ここに　ビル　たてようと　おもって"
-	line "#に　じならし　させとる！"
-	done
+	text_asm
+	ld hl, RelocatedText_VermilionCityGambler2Text
+	ld a, BANK(RelocatedText_VermilionCityGambler2Text)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 VermilionCityMachopText:
 	text "ワンリキー『ごおーっ　ごごごー@"
@@ -280,18 +282,15 @@ VermilionCitySignText:
 	done
 
 VermilionCityNoticeSignText:
-	text "<⋯>　おしらせの　チラシだ！"
-
-	para "さいきん<⋯>　１２ばん　どうろに"
-	line "いねむり　#が　しゅつぼつ"
-	cont "とおれない　ことが　あります！"
-
-	para "そういう　とき　シオン　タウンへ"
-	line "いく　かたは　いわやま　トンネルを"
-	cont "とおって　ください！"
-
-	para "<⋯>　クチバ　けいさつ　より"
-	done
+	text_asm
+	ld hl, RelocatedText_VermilionCityNoticeSignText
+	ld a, BANK(RelocatedText_VermilionCityNoticeSignText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 VermilionCityPokemonFanClubSignText:
 	text "こちら　#　だいすき　クラブ"

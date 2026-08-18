@@ -219,11 +219,13 @@ PokemonTower2FRivalText:
 	done
 
 PokemonTower2FChannelerText:
-	text "おぬし！　まよい　さまよう"
-	line "ゆうれいの　しょうたいは<⋯>"
-	cont "われわれでも　つかめない！"
+	text_asm
+	ld hl, RelocatedText_PokemonTower2FChannelerText
+	ld a, BANK(RelocatedText_PokemonTower2FChannelerText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
-	para "もし　とくべつな　どうぐが<⋯>"
-	line "シルフ　スコープさえ　あれば"
-	cont "みやぶれるかも　しれないが<⋯>"
-	done

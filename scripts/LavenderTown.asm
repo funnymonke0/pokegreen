@@ -46,21 +46,26 @@ LavenderTownLittleGirlText:
 	done
 
 LavenderTownCooltrainerMText:
-	text "ここは　#の　おはかで"
-	line "ゆうめいな　タウンだ<⋯>"
-
-	para "かっていた　#が　しんだとき"
-	line "#　タワーに　もっていって"
-	cont "めいふくを　いのるのさ<⋯>"
-	done
+	text_asm
+	ld hl, RelocatedText_LavenderTownCooltrainerMText
+	ld a, BANK(RelocatedText_LavenderTownCooltrainerMText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 LavenderTownSuperNerdText:
-	text "さいきん　#　タワーに"
-	line "ゆうれいが　でる　らしいんだ<⋯>"
-
-	para "どうも　<ROCKET>に　ころされた"
-	line "#の　ゆうれい　らしい<⋯>"
-	done
+	text_asm
+	ld hl, RelocatedText_LavenderTownSuperNerdText
+	ld a, BANK(RelocatedText_LavenderTownSuperNerdText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 LavenderTownSignText:
 	text "ここは　シオン　タウン"

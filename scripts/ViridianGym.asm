@@ -283,20 +283,15 @@ ViridianGymGiovanniText:
 	text_end
 
 ViridianGymGiovanniEarthBadgeInfoText:
-	text "グリーンバッジさえ　あれば"
-	line "どんなに　レベルの　たかい"
-	cont "#も　いうことを　きく！"
-
-	para "きみが　いちにんまえの"
-	line "<TRAINER>に　なった　あかしだ！"
-
-	para "これで　#リーグに"
-	line "いどむ　ことが　できるだろう"
-
-	para "この　<TM>は<⋯>！"
-	line "#リーグへ　いどむ"
-	cont "きみへ　せんべつだ！"
-	done
+	text_asm
+	ld hl, RelocatedText_ViridianGymGiovanniEarthBadgeInfoText
+	ld a, BANK(RelocatedText_ViridianGymGiovanniEarthBadgeInfoText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 ViridianGymGiovanniReceivedTM27Text:
 	text "<PLAYER>は　サカキから"

@@ -17,15 +17,15 @@ SafariZoneWestRestHouseSignText:
 	done
 
 SafariZoneWestFindWardensTeethSignText:
-	text "<⋯>　おねがいの　けいじばん！"
-
-	para "サファリ　ゾーンの　えんちょうが"
-	line "この　あたりで"
-	cont "いればを　なくし　ました！"
-
-	para "みつけた　かたに　おれい　します"
-	line "<⋯>　サファリ　ゾーン　じむ　きょく"
-	done
+	text_asm
+	ld hl, RelocatedText_SafariZoneWestFindWardensTeethSignText
+	ld a, BANK(RelocatedText_SafariZoneWestFindWardensTeethSignText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 SafariZoneWestTrainerTipsText:
 	text "<⋯>　おとくな　けいじばん！"

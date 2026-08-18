@@ -16,19 +16,24 @@ CeladonMart4FSuperNerdText:
 	done
 
 CeladonMart4FYoungsterText:
-	text "ちょっと　いい　はなし　きいたよ"
-
-	para "#が　とびだして　きた　とき"
-	line "ピッピにんぎょうを　なげると"
-	cont "#は　それに　きを　とられる"
-
-	para "つまり　にげれるって　ことだよ！"
-	done
+	text_asm
+	ld hl, RelocatedText_CeladonMart4FYoungsterText
+	ld a, BANK(RelocatedText_CeladonMart4FYoungsterText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 CeladonMart4FCurrentFloorSignText:
-	text "４かい<⋯>まごころ　おくろう！"
-	line "　　ワイズマン·ギフト　ショップ！"
+	text_asm
+	ld hl, RelocatedText_CeladonMart4FCurrentFloorSignText
+	ld a, BANK(RelocatedText_CeladonMart4FCurrentFloorSignText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
-	para "ただいま　#　しんかのいし"
-	line "とくべつ　はんばい　ちゅう！"
-	done

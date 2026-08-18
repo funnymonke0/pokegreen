@@ -184,14 +184,15 @@ SSAnne2F_TextPointers:
 	dw_const SSAnne2FRivalCutMasterText, TEXT_SSANNE2F_RIVAL_CUT_MASTER
 
 SSAnne2FWaiterText:
-	text "この　ふねは　せかい　かくちの"
-	line "#　<TRAINER>が　のってる"
-	cont "あこがれの　ごうか　きゃくせん！"
-
-	para "みなとに　つくたびに"
-	line "しょうたい　された　<TRAINER>と"
-	cont "こうりゅう　パーティを　してます"
-	done
+	text_asm
+	ld hl, RelocatedText_SSAnne2FWaiterText
+	ld a, BANK(RelocatedText_SSAnne2FWaiterText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 SSAnne2FRivalText:
 	text_asm
@@ -244,15 +245,13 @@ SSAnne2FRivalVictoryText:
 	prompt
 
 SSAnne2FRivalCutMasterText:
-	text "<RIVAL>『いあいぎりの　めいじんが"
-	line "ふねに　のってるって　いう　からよ"
+	text_asm
+	ld hl, RelocatedText_SSAnne2FRivalCutMasterText
+	ld a, BANK(RelocatedText_SSAnne2FRivalCutMasterText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
-	para "あって　みたら"
-	line "これが　ただの　ふなよい　おやじ！"
-
-	para "でも　この　わざが"
-	line "また　つかえるんだよなー！"
-
-	para "おまえも　あって　みると　いいぜ！"
-	line "じゃー　あばよ！"
-	done

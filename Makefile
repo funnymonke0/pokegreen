@@ -65,6 +65,7 @@ RGBGFXFLAGS  ?= -Weverything
 	compare \
 	tools \
 	repoint-text \
+	relocate-text \
 	headroom-stubs \
 	headroom-default \
 	headroom-unused-audio \
@@ -111,6 +112,9 @@ tools:
 
 repoint-text:
 	python3 tools/repoint_text.py --apply
+
+relocate-text:
+	python3 tools/relocate_text.py --apply
 
 headroom-stubs:
 	python3 tools/generate_audio_headroom_stubs.py

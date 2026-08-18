@@ -27,25 +27,26 @@ IndigoPlateauLobbyNurseText:
 	script_pokecenter_nurse
 
 IndigoPlateauLobbyGymGuideText:
-	text "おーす！"
-	line "みらいの　チャンピオン！"
-
-	para "#　リーグ　してんのうは"
-	line "４にん　つづけて"
-	cont "しょうぶ　する　ルールだ！"
-
-	para "まけたら　ひとりめ　から"
-	line "やりなおしに　なるぞ！"
-	cont "これが　さいごだ！　がんばれよ！"
-	done
+	text_asm
+	ld hl, RelocatedText_IndigoPlateauLobbyGymGuideText
+	ld a, BANK(RelocatedText_IndigoPlateauLobbyGymGuideText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 IndigoPlateauLobbyCooltrainerFText:
-	text "このさきは　してんのうと"
-	line "ひとりずつ　たたかうの！"
-	cont "もし　かてたら　ドアが　ひらいて"
-	cont "おくの　へやに　すすめるわ！"
-	cont "がんばって！"
-	done
+	text_asm
+	ld hl, RelocatedText_IndigoPlateauLobbyCooltrainerFText
+	ld a, BANK(RelocatedText_IndigoPlateauLobbyCooltrainerFText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 IndigoPlateauLobbyLinkReceptionistText:
 	script_cable_club_receptionist

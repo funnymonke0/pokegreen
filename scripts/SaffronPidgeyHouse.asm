@@ -30,10 +30,13 @@ SaffronPidgeyHouseYoungsterText:
 	done
 
 SaffronPidgeyHousePaperText:
-	text "<⋯>　この　あいだ"
-	line "ポイント　アップ　もらったの"
+	text_asm
+	ld hl, RelocatedText_SaffronPidgeyHousePaperText
+	ld a, BANK(RelocatedText_SaffronPidgeyHousePaperText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
-	para "すごく　つよい　わざって"
-	line "パワー　ポイント　すくないけど"
-	cont "これで　ふやせば　いいのね<⋯>？"
-	done

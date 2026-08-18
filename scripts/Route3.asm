@@ -38,14 +38,15 @@ Route3_TextPointers:
 	db -1 ; end
 
 Route3SuperNerdText:
-	text "ふう<⋯>"
-	line "この　へんで<⋯>"
-	cont "<⋯>　ひとやすみ　して　いこう"
-
-	para "ハナダ　シティから"
-	line "どうくつを　ぬけて　きたら"
-	cont "<⋯>　つかれた"
-	done
+	text_asm
+	ld hl, RelocatedText_Route3SuperNerdText
+	ld a, BANK(RelocatedText_Route3SuperNerdText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 Route3Youngster1Text:
 	text_asm

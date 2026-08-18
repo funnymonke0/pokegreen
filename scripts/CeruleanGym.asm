@@ -147,22 +147,15 @@ CeruleanGymMistyText:
 	done
 
 CeruleanGymMistyCascadeBadgeInfoText:
-	text "ブルー　バッジが　あれば"
-	line "レベル３０までの　#は"
-	cont "おとなしく　いうこと　きくわ！"
-
-	para "それが　たとえ"
-	line "ひとから　もらった　#でもね"
-
-	para "それと　たたかって　なくても"
-	line "いあいぎりが　つかえるわ"
-
-	para "ほそい　きを　きりたおして"
-	line "とおれる　ように　なるの"
-
-	para "<⋯>　あと　これは　わたしの"
-	line "じまんの　<TM>よ！"
-	done
+	text_asm
+	ld hl, RelocatedText_CeruleanGymMistyCascadeBadgeInfoText
+	ld a, BANK(RelocatedText_CeruleanGymMistyCascadeBadgeInfoText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 CeruleanGymMistyReceivedTM11Text:
 	text "<PLAYER>は　カスミから"

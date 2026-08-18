@@ -163,16 +163,15 @@ FuchsiaGymKogaText:
 	done
 
 FuchsiaGymKogaSoulBadgeInfoText:
-	text "ピンク　バッジを　もって　おれば"
-	line "おぬしの　#の"
-	cont "ぼうぎょ　りょくを　あげる！"
-
-	para "たたかって　ない　ときでも"
-	line "なみのりの　わざを"
-	cont "つかえる　ように　なる！"
-
-	para "そうだ<⋯>！　これを　おぬしに！"
-	done
+	text_asm
+	ld hl, RelocatedText_FuchsiaGymKogaSoulBadgeInfoText
+	ld a, BANK(RelocatedText_FuchsiaGymKogaSoulBadgeInfoText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 FuchsiaGymKogaReceivedTM06Text:
 	text "<PLAYER>は　キョウ　から"

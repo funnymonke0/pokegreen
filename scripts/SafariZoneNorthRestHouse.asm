@@ -9,13 +9,15 @@ SafariZoneNorthRestHouse_TextPointers:
 	dw_const SafariZoneNorthRestHouseGentlemanText,        TEXT_SAFARIZONENORTHRESTHOUSE_GENTLEMAN
 
 SafariZoneNorthRestHouseScientistText:
-	text "サファリ　ゾーン　ないに"
-	line "おちてる　アイテムは"
-	cont "もって　いって　いいんだよ！"
-
-	para "でも　ぜんぶ　ひろって　たら"
-	line "じかん　なくなっちゃう！"
-	done
+	text_asm
+	ld hl, RelocatedText_SafariZoneNorthRestHouseScientistText
+	ld a, BANK(RelocatedText_SafariZoneNorthRestHouseScientistText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 SafariZoneNorthRestHouseSafariZoneWorkerText:
 	text "いま　キャンペーン　ちゅう　だろ"

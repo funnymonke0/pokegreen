@@ -6,14 +6,13 @@ Route11Gate1F_TextPointers:
 	dw_const Route11Gate1FGuardText, TEXT_ROUTE11GATE1F_GUARD
 
 Route11Gate1FGuardText:
-	text "#を　たくさん　とると"
-	line "なまえを　つけて　あげるのに"
-	cont "くろう　しちゃう　でしょ！"
+	text_asm
+	ld hl, RelocatedText_Route11Gate1FGuardText
+	ld a, BANK(RelocatedText_Route11Gate1FGuardText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
-	para "この　さきの　シオン　タウンに"
-	line "#の　なまえを"
-	cont "うらなって　くれる　ひとが　いるよ"
-
-	para "#に　もっと　いい　なまえを"
-	line "つけ　なおす　ことも　できるよ"
-	done

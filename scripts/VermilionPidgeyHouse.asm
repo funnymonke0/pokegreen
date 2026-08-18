@@ -23,11 +23,13 @@ VermilionPidgeyHousePidgeyText:
 	jp TextScriptEnd
 
 VermilionPidgeyHouseLetterText:
-	text "<⋯>ピピちゃん"
-	line "こんど　あそびに　いきたい　です"
+	text_asm
+	ld hl, RelocatedText_VermilionPidgeyHouseLetterText
+	ld a, BANK(RelocatedText_VermilionPidgeyHouseLetterText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
-	para "ヤマブキ　シティでは　<ROCKET>の"
-	line "じけんが　おおい　そうですね"
-
-	para "クチバは　そうでも　ありません<⋯>"
-	done

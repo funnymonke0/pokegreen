@@ -19,14 +19,15 @@ Museum2FYoungsterText:
 	done
 
 Museum2FGrampsText:
-	text "１９６９ねん　７がつ　２０か！"
-
-	para "じんるい"
-	line "はじめて　つきに　たつ！"
-
-	para "わしは　あの　ニュースが　みたくて"
-	line "カラーテレビを　かったんじゃ！"
-	done
+	text_asm
+	ld hl, RelocatedText_Museum2FGrampsText
+	ld a, BANK(RelocatedText_Museum2FGrampsText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 Museum2FScientistText:
 	text "こんげつは"

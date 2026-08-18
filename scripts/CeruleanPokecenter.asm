@@ -16,25 +16,24 @@ CeruleanPokecenterNurseText:
 	script_pokecenter_nurse
 
 CeruleanPokecenterSuperNerdText:
-	text "マサキの　ヤツ！"
-
-	para "めずらしい　#を"
-	line "てに　いれる　ためには<⋯>"
-
-	para "あんな　ことも　こんな　ことも"
-	line "へいきで　するって　きいたよ！"
-	done
+	text_asm
+	ld hl, RelocatedText_CeruleanPokecenterSuperNerdText
+	ld a, BANK(RelocatedText_CeruleanPokecenterSuperNerdText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 CeruleanPokecenterGentlemanText:
-	text "きみも"
-	line "マサキの　うわさ　きいてるか？"
+	text_asm
+	ld hl, RelocatedText_CeruleanPokecenterGentlemanText
+	ld a, BANK(RelocatedText_CeruleanPokecenterGentlemanText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
-	para "みんなが　あいつを"
-	line "#　マニアと　よんでるよ！"
-
-	para "でも　ものを　あつめたり"
-	line "じまん　したい　きもちは"
-	cont "だれでも　ある！"
-
-	para "みんなも　うらやましいんだな！"
-	done

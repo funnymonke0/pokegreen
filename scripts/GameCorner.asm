@@ -241,12 +241,15 @@ GameCornerClerk1Text:
 	done
 
 GameCornerMiddleAgedMan1Text:
-	text "<⋯>　ここだけの　はなし<⋯>"
-
-	para "この　ゲーム　じょうは"
-	line "<ROCKET>の　おみせ　らしい<⋯>"
-	cont "みんな　うわさ　しちょる<⋯>"
-	done
+	text_asm
+	ld hl, RelocatedText_GameCornerMiddleAgedMan1Text
+	ld a, BANK(RelocatedText_GameCornerMiddleAgedMan1Text)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 GameCornerBeauty2Text:
 	text "ばしょに　よって　よく　でる"

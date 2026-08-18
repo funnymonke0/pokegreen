@@ -366,18 +366,15 @@ SilphCo11FBeautyText:
 	done
 
 SilphCo11FGiovanniText:
-	text "おお　<PLAYER>か？"
-	line "また　あったな！"
-
-	para "おれは　いま　シルフの　しゃちょうと"
-	line "しごとの　はなしを　してるんだ"
-
-	para "おとなの　せかいに"
-	line "くちを　はさまないで　もらいたい"
-
-	para "どうしても　というなら"
-	line "いたいめに　あって　もらうぞ！"
-	done
+	text_asm
+	ld hl, RelocatedText_SilphCo11FGiovanniText
+	ld a, BANK(RelocatedText_SilphCo11FGiovanniText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 SilphCo11FGiovanniILostAgainText:
 	text "はぐ！"
@@ -385,20 +382,15 @@ SilphCo11FGiovanniILostAgainText:
 	prompt
 
 SilphCo11FGiovanniYouRuinedOurPlansText:
-	text "くそー　<⋯>しょうが　ない！"
-	line "シルフは　ひとまず　あきらめよう！"
-
-	para "しかし　"
-	line "わが　<ROCKET>は　ふめつだ！"
-
-	para "<PLAYER>！　すべての　#は"
-	line "<ROCKET>の　ために"
-	cont "そんざい　するのだ！"
-	cont "そのことを　わすれるなよ！"
-
-	para "では<⋯>！"
-	line "おれは　たいさん　しよう！"
-	done
+	text_asm
+	ld hl, RelocatedText_SilphCo11FGiovanniYouRuinedOurPlansText
+	ld a, BANK(RelocatedText_SilphCo11FGiovanniYouRuinedOurPlansText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 SilphCo11FRocket1Text:
 	text_asm

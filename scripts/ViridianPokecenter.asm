@@ -13,12 +13,15 @@ ViridianPokecenterNurseText:
 	script_pokecenter_nurse
 
 ViridianPokecenterGentlemanText:
-	text "すみに　ある　<PC>は　どうぞ"
-	line "ごじゆうに　おつかいください！"
-
-	para "<⋯>と　うけつけの　ねーちゃんが"
-	line "いっとった　しんせつやのう"
-	done
+	text_asm
+	ld hl, RelocatedText_ViridianPokecenterGentlemanText
+	ld a, BANK(RelocatedText_ViridianPokecenterGentlemanText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 ViridianPokecenterCooltrainerMText:
 	text "#センターは　このさき"

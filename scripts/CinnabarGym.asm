@@ -265,17 +265,15 @@ CinnabarGymBlaineText:
 	done
 
 CinnabarGymBlaineVolcanoBadgeInfoText:
-	text "うおーす！"
-
-	para "この　クリムゾン　バッジは"
-	line "もってる　だけで"
-
-	para "#の　とくしゅ　のうりょくを"
-	line "たかめる　こうかが　ある！"
-
-	para "それから！"
-	line "この　<TM>を　うけとれい！"
-	done
+	text_asm
+	ld hl, RelocatedText_CinnabarGymBlaineVolcanoBadgeInfoText
+	ld a, BANK(RelocatedText_CinnabarGymBlaineVolcanoBadgeInfoText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 CinnabarGymBlaineReceivedTM38Text:
 	text "<PLAYER>は　カツラから"

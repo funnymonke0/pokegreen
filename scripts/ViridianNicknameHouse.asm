@@ -9,12 +9,15 @@ ViridianNicknameHouse_TextPointers:
 	dw_const ViridianNicknameHouseSpearySignText, TEXT_VIRIDIANNICKNAMEHOUSE_SPEARY_SIGN
 
 ViridianNicknameHouseBaldingGuyText:
-	text "ニックネームを　かんがえることは"
-	line "たのしい<⋯>が　むずかしい！"
-
-	para "こった　ニックネームも　いいが"
-	line "おぼえやすいのが　いちばん　やな！"
-	done
+	text_asm
+	ld hl, RelocatedText_ViridianNicknameHouseBaldingGuyText
+	ld a, BANK(RelocatedText_ViridianNicknameHouseBaldingGuyText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 ViridianNicknameHouseLittleGirlText:
 	text "うちの　とうちゃんも"

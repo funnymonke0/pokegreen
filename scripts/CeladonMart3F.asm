@@ -85,17 +85,15 @@ CeladonMart3FGameBoyKid2Text:
 	done
 
 CeladonMart3FGameBoyKid3Text:
-	text "はやく　きて！"
-	line "ゴースト　ちゃーん！"
-
-	para "ぼくは"
-	line "ゴースト　マニア　なのね！"
-
-	para "<⋯>　あー？"
-
-	para "てんそう　されて　きた　ゴーストが"
-	line "べつの　#に！？"
-	done
+	text_asm
+	ld hl, RelocatedText_CeladonMart3FGameBoyKid3Text
+	ld a, BANK(RelocatedText_CeladonMart3FGameBoyKid3Text)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 CeladonMart3FLittleBoyText:
 	text "ひとから　もらった　#は"

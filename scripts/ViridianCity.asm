@@ -144,14 +144,15 @@ ViridianCity_TextPointers:
 	dw_const ViridianCityOldManYouNeedToWeakenTheTargetText, TEXT_VIRIDIANCITY_OLD_MAN_YOU_NEED_TO_WEAKEN_THE_TARGET
 
 ViridianCityYoungster1Text:
-	text "きみが　こしに　つけてる"
-	line "その　モンスターボールは<⋯>！"
-	cont "まさしく　#だね！"
-
-	para "いつでも　#の　だしいれが"
-	line "じゆうに　できる　なんて"
-	cont "べんりな　よのなかだね"
-	done
+	text_asm
+	ld hl, RelocatedText_ViridianCityYoungster1Text
+	ld a, BANK(RelocatedText_ViridianCityYoungster1Text)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 ViridianCityGambler1Text:
 	text_asm
@@ -375,25 +376,26 @@ ViridianCitySignText:
 	done
 
 ViridianCityTrainerTips1Text:
-	text "<⋯>　おとくな　けいじばん！"
-
-	para "とにかく　#を　つかまえて"
-	line "ドンドン　ふやそう！"
-	cont "<TRAINER>との　しょうぶも"
-	cont "たくさん　もってると　ゆうり！"
-	done
+	text_asm
+	ld hl, RelocatedText_ViridianCityTrainerTips1Text
+	ld a, BANK(RelocatedText_ViridianCityTrainerTips1Text)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 ViridianCityTrainerTips2Text:
-	text "<⋯>　おとくな　けいじばん！"
-
-	para "#には　たいりょくの　ほか"
-	line "わざを　くりだす　げんきの　もと"
-	cont "パワーポイントが　あります"
-
-	para "わざ　ごとの　パワーポイントが"
-	line "なくなった　ときも"
-	cont "#センターで　やすませて！"
-	done
+	text_asm
+	ld hl, RelocatedText_ViridianCityTrainerTips2Text
+	ld a, BANK(RelocatedText_ViridianCityTrainerTips2Text)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 ViridianCityGymSignText:
 	text "トキワ　#ジム"

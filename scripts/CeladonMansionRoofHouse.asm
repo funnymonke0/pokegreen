@@ -7,15 +7,15 @@ CeladonMansionRoofHouse_TextPointers:
 	dw_const CeladonMansionRoofHouseEeveePokeballText, TEXT_CELADONMANSION_ROOF_HOUSE_EEVEE_POKEBALL
 
 CeladonMansionRoofHouseHikerText:
-	text "こくばんにも　かいたが<⋯>"
-	line "わしに　わからぬ　ことは　ない"
-	cont "ゲームボーイの　なかに"
-	cont "せかいが　あることも！"
-
-	para "ぜひ！　ともだちを　さそって"
-	line "#の　こうかんを"
-	cont "たのしんで　くれたまえ！"
-	done
+	text_asm
+	ld hl, RelocatedText_CeladonMansionRoofHouseHikerText
+	ld a, BANK(RelocatedText_CeladonMansionRoofHouseHikerText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 CeladonMansionRoofHouseEeveePokeballText:
 	text_asm

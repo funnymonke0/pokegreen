@@ -8,14 +8,15 @@ CeruleanMart_TextPointers:
 	dw_const CeruleanMartCooltrainerFText, TEXT_CERULEANMART_COOLTRAINER_F
 
 CeruleanMartCooltrainerMText:
-	text "むしよけスプレーは"
-	line "むし　どころか"
-	cont "#も　よって　こないよ"
-
-	para "つよい　#を　いちばん"
-	line "うえに　おいて　おけば"
-	cont "こうかは　ばいぞう　だ！"
-	done
+	text_asm
+	ld hl, RelocatedText_CeruleanMartCooltrainerMText
+	ld a, BANK(RelocatedText_CeruleanMartCooltrainerMText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 CeruleanMartCooltrainerFText:
 	text "おみせでは　みた　こと　ないけど"

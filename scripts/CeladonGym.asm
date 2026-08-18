@@ -173,17 +173,15 @@ CeladonGymErikaText:
 	done
 
 CeladonGymRainbowBadgeInfoText:
-	text "レインボー　バッジで"
-	line "レベル５０　までの　#が"
-	cont "おとなしく　いうこと　きき　ます"
-
-	para "そして<⋯>　かいりきの　わざが"
-	line "たたかって　なくても　つかえます"
-
-	para "それから<⋯>"
-	line "よろしかったら"
-	cont "これも　おつかいに　なって！"
-	done
+	text_asm
+	ld hl, RelocatedText_CeladonGymRainbowBadgeInfoText
+	ld a, BANK(RelocatedText_CeladonGymRainbowBadgeInfoText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 CeladonGymReceivedTM21Text:
 	text "<PLAYER>は　エリカ　から"

@@ -166,21 +166,15 @@ SaffronGymSabrinaText:
 	done
 
 SaffronGymSabrinaMarshBadgeInfoText:
-	text "ゴールド　バッジで"
-	line "レベル７０　までの　#が"
-	cont "いうことを　ききます！"
-
-	para "それ　いじょう"
-	line "つよい　#は"
-	cont "ソッポ　むいたり　ふてね　したり"
-	cont "あつかいが　たいへん　です！"
-
-	para "だけど　そだて　すぎなきゃ"
-	line "そういう　しんぱいは　むようよ！"
-
-	para "それから<⋯>！"
-	line "<TM>を　もって　いって"
-	done
+	text_asm
+	ld hl, RelocatedText_SaffronGymSabrinaMarshBadgeInfoText
+	ld a, BANK(RelocatedText_SaffronGymSabrinaMarshBadgeInfoText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 SaffronGymSabrinaReceivedTM46Text:
 	text "<PLAYER>は　ナツメから"

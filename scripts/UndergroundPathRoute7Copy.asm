@@ -9,12 +9,15 @@ UndergroundPathRoute7Copy_TextPointers:
 	dw_const UndergroundPathRoute7CopyUnusedMiddleAgedManText, TEXT_UNDERGROUNDPATHROUTE7COPY_UNUSED_MIDDLE_AGED_MAN
 
 UndergroundPathRoute7CopyUnusedGirlText:
-	text "「たまむし」シティの　デパートへ"
-	next "かいものに　いきたいんだけど<⋯>"
-
-	para "あのまちには　ガラのわるい　ひとが"
-	line "おおくて　なんだか　こわいのよね"
-	done
+	text_asm
+	ld hl, RelocatedText_UndergroundPathRoute7CopyUnusedGirlText
+	ld a, BANK(RelocatedText_UndergroundPathRoute7CopyUnusedGirlText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 UndergroundPathRoute7CopyUnusedTeamRocketHadAHideoutText:
 	text "「たまむし」シティに"

@@ -262,13 +262,15 @@ Route13TrainerTips1Text:
 	done
 
 Route13TrainerTips2Text:
-	text "<⋯>　おとくな　けいじばん！"
-
-	para "どうぐ　ウィンドウで"
-	line "セレクト　ボタンを　おすと"
-	cont "どうぐの　ばしょを"
-	cont "いれかえる　ことが　できる！"
-	done
+	text_asm
+	ld hl, RelocatedText_Route13TrainerTips2Text
+	ld a, BANK(RelocatedText_Route13TrainerTips2Text)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 Route13SignText:
 	text "ここは　１３ばん　どうろ"

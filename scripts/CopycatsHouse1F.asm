@@ -14,13 +14,15 @@ CopycatsHouse1FMiddleAgedWomanText:
 	done
 
 CopycatsHouse1FMiddleAgedManText:
-	text "<⋯>　こまった　ことに　むすめは"
-	line "ひとの　まねが　すきでな！"
-
-	para "しょっちゅう　ひとを　からかう　ので"
-	line "きんじょ　じゃ"
-	cont "モノマネ　むすめと　よばれとる！"
-	done
+	text_asm
+	ld hl, RelocatedText_CopycatsHouse1FMiddleAgedManText
+	ld a, BANK(RelocatedText_CopycatsHouse1FMiddleAgedManText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 CopycatsHouse1FChanseyText:
 	text "ラッキー『ラッ　きぃ！@"

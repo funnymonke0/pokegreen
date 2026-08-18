@@ -59,14 +59,15 @@ Route1Youngster1Text:
 	done
 
 Route1Youngster2Text:
-	text "みちに　だんさが　あるだろ！"
-
-	para "とび　おりるのは"
-	line "ちょっと　こわいけど<⋯>"
-
-	para "マサラ　タウンに　かえる　ときは"
-	line "はやく　かえれて　いいよ"
-	done
+	text_asm
+	ld hl, RelocatedText_Route1Youngster2Text
+	ld a, BANK(RelocatedText_Route1Youngster2Text)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 Route1SignText:
 	text "ここは　１ばん　どうろ"

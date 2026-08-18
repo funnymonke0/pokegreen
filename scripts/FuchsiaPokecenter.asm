@@ -13,22 +13,26 @@ FuchsiaPokecenterNurseText:
 	script_pokecenter_nurse
 
 FuchsiaPokecenterRockerText:
-	text "１ぴきだけ　そだてても"
-	line "つよい　<TRAINER>に　なれない"
-
-	para "おおくの　#を　"
-	line "バランス　よく　そだてるのも"
-	cont "たいへん　だけどな"
-	done
+	text_asm
+	ld hl, RelocatedText_FuchsiaPokecenterRockerText
+	ld a, BANK(RelocatedText_FuchsiaPokecenterRockerText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 FuchsiaPokecenterCooltrainerFText:
-	text "トキワの　にしに"
-	line "ほそい　みちが　ある　でしょう"
-
-	para "その　おくに　たってるのが"
-	line "すべての　#　<TRAINER>を"
-	cont "まとめる　そしき　#　リーグよ"
-	done
+	text_asm
+	ld hl, RelocatedText_FuchsiaPokecenterCooltrainerFText
+	ld a, BANK(RelocatedText_FuchsiaPokecenterCooltrainerFText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 FuchsiaPokecenterLinkReceptionistText:
 	script_cable_club_receptionist

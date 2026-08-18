@@ -148,18 +148,15 @@ FightingDojoKarateMasterText:
 	prompt
 
 FightingDojoKarateMasterGivePokemonText:
-	text "わしは　たしかに　まけた！"
-
-	para "しかし　どうじょうの　かんばん"
-	line "<⋯>　だけは！"
-	cont "もって　いかないで　くれい！"
-
-	para "かわりに　わしの　だいじな"
-	line "かくとう　#を　わたす！"
-
-	para "どうか！"
-	line "すきな　ほうを　えらんで　くれい！"
-	done
+	text_asm
+	ld hl, RelocatedText_FightingDojoKarateMasterGivePokemonText
+	ld a, BANK(RelocatedText_FightingDojoKarateMasterGivePokemonText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 FightingDojoKarateMasterTrainWithUsText:
 	text "オスッ！"

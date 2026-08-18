@@ -7,15 +7,15 @@ CeruleanTradeHouse_TextPointers:
 	dw_const CeruleanTradeHouseGamblerText, TEXT_CERULEANTRADEHOUSE_GAMBLER
 
 CeruleanTradeHouseGrannyText:
-	text "うちの　じいさま"
-	line "#の　こうかんに　こってるの"
-
-	para "ぼうや"
-	line "#　ずかん　あつめてるなら"
-
-	para "こうかんの　あいて"
-	line "して　あげて　くれるかしら"
-	done
+	text_asm
+	ld hl, RelocatedText_CeruleanTradeHouseGrannyText
+	ld a, BANK(RelocatedText_CeruleanTradeHouseGrannyText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 CeruleanTradeHouseGamblerText:
 	text_asm

@@ -412,17 +412,15 @@ CeruleanCitySuperNerd2Text:
 	done
 
 CeruleanCityGuardText:
-	text "かわいそーな　ことに"
-
-	para "この　いえは"
-	line "ドロボーに　はいられたんだ！"
-	cont "はんにんは　わかっとる！"
-	cont "<ROCKET>の　しわざだ！"
-
-	para "けいさつ　としても"
-	line "<ROCKET>の　あくじ　には"
-	cont "ほとほと　こまっとるのだ！"
-	done
+	text_asm
+	ld hl, RelocatedText_CeruleanCityGuardText
+	ld a, BANK(RelocatedText_CeruleanCityGuardText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 CeruleanCityCooltrainerF1Text:
 	text_asm
@@ -519,13 +517,15 @@ CeruleanCityCooltrainerF2Text:
 	done
 
 CeruleanCitySuperNerd3Text:
-	text "ここは<⋯>　ハナダ　どうくつ！"
-	line "こわい　ほど　つよい　#が"
-	cont "せいそく　してるぞ！"
-
-	para "#　リーグ　にんてい"
-	line "チャンピオン　しか　はいれないのだ！"
-	done
+	text_asm
+	ld hl, RelocatedText_CeruleanCitySuperNerd3Text
+	ld a, BANK(RelocatedText_CeruleanCitySuperNerd3Text)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 CeruleanCitySignText:
 	text "ここは　ハナダシティ"

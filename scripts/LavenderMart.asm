@@ -8,18 +8,15 @@ LavenderMart_TextPointers:
 	dw_const LavenderMartCooltrainerMText, TEXT_LAVENDERMART_COOLTRAINER_M
 
 LavenderMartBaldingGuyText:
-	text "おじさんが　さがしてる　のは<⋯>"
-
-	para "#が　たたかってる　とき"
-	line "のうりょくを　いちじ　てきに"
-	cont "あげる　どうぐ　なんだが<⋯>"
-
-	para "プラスパワー　ディフェンダー"
-	line "スピーダー　スペシャルアップ<⋯>"
-
-	para "<⋯>という"
-	line "なまえ　なんだが　しらんかな？"
-	done
+	text_asm
+	ld hl, RelocatedText_LavenderMartBaldingGuyText
+	ld a, BANK(RelocatedText_LavenderMartBaldingGuyText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 LavenderMartCooltrainerMText:
 	text_asm

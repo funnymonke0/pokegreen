@@ -83,14 +83,15 @@ SaffronCitySilphWorkerFText:
 	done
 
 SaffronCityGentlemanText:
-	text "<ROCKET>が　シルフ　おそって"
-	line "だいじけんって　きいて！"
-	cont "ピジョットで　とんで　きたッス"
-
-	para "かいけつ　した<⋯>？"
-	line "すんません！"
-	cont "ねっからの　ヤジウマ　で！"
-	done
+	text_asm
+	ld hl, RelocatedText_SaffronCityGentlemanText
+	ld a, BANK(RelocatedText_SaffronCityGentlemanText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 SaffronCityPidgeotText:
 	text "ピジョット『ビビーッ！@"
@@ -132,27 +133,26 @@ SaffronCityGymSignText:
 	done
 
 SaffronCityTrainerTips1Text:
-	text "<⋯>　おとくな　けいじばん！"
-
-	para "なんでも　なおしは"
-	line "ねむり　どく　やけど　こおり<⋯>"
-	cont "なんでも　なおします！"
-
-	para "すこし　たかい　けど"
-	line "ねむけざまし　どくけし　などを"
-	cont "バラバラに　かうより　らくちん！"
-	done
+	text_asm
+	ld hl, RelocatedText_SaffronCityTrainerTips1Text
+	ld a, BANK(RelocatedText_SaffronCityTrainerTips1Text)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 SaffronCityTrainerTips2Text:
-	text "<⋯>　おとくな　けいじばん！"
-
-	para "しんせいひん　スーパーボールは"
-	line "モンスターボール　より　かくじつに"
-	cont "#を　つかまえます！"
-
-	para "なかなか　つかまえ　られない"
-	line "#には　こちらを　ためそう！"
-	done
+	text_asm
+	ld hl, RelocatedText_SaffronCityTrainerTips2Text
+	ld a, BANK(RelocatedText_SaffronCityTrainerTips2Text)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 SaffronCitySilphCoSignText:
 	text "シルフ　カンパニー　ほんしゃ　ビル"

@@ -204,14 +204,15 @@ PewterCityCooltrainerFText:
 	done
 
 PewterCityCooltrainerMText:
-	text "ニビ　シティは"
-	line "むしとり　しょうねん　みたいに"
-	cont "ただの　しゅみで　#"
-	cont "やってる　やつ　ばかり！"
-
-	para "しかし　ニビ　#　ジムの"
-	line "タケシは　ちがうぜ"
-	done
+	text_asm
+	ld hl, RelocatedText_PewterCityCooltrainerMText
+	ld a, BANK(RelocatedText_PewterCityCooltrainerMText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 PewterCitySuperNerd1Text:
 	text_asm
@@ -341,15 +342,15 @@ PewterCityTrainerTipsText:
 	done
 
 PewterCityPoliceNoticeSignText:
-	text "<⋯>　チラシが　はって　ある！"
-
-	para "さいきん　オツキミやまで"
-	line "きちょうな　#の"
-	cont "カセキを　ぬすみ　まくる"
-	cont "あくとうが　います！"
-	cont "あやしい　ひとを　みたら<⋯>！"
-	cont "<⋯>　ニビ　けいさつ　まで"
-	done
+	text_asm
+	ld hl, RelocatedText_PewterCityPoliceNoticeSignText
+	ld a, BANK(RelocatedText_PewterCityPoliceNoticeSignText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 PewterCityMuseumSignText:
 	text "ニビ　かがく　はくぶつかん"

@@ -152,14 +152,15 @@ ViridianForestTrainerTips3Text:
 	done
 
 ViridianForestTrainerTips4Text:
-	text "<⋯>　おとくな　けいじばん！"
-
-	para "#を　つかまえる　ときは"
-	line "なるべく　よわらせてから！"
-
-	para "#が　げんきだと"
-	line "にげるかも　しれないよ！"
-	done
+	text_asm
+	ld hl, RelocatedText_ViridianForestTrainerTips4Text
+	ld a, BANK(RelocatedText_ViridianForestTrainerTips4Text)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
 ViridianForestLeavingSignText:
 	text "トキワの　もり　<⋯>　でぐち"

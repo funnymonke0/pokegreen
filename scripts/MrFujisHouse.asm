@@ -140,11 +140,13 @@ MrFujisHouseMrFujiText:
 	done
 
 MrFujisHouseMrFujiPokedexText:
-	text "ごうか　しょうひんが　あたる！"
-	line "げっかん　#の　とも"
-	cont "ビッグ·プレゼント！"
+	text_asm
+	ld hl, RelocatedText_MrFujisHouseMrFujiPokedexText
+	ld a, BANK(RelocatedText_MrFujisHouseMrFujiPokedexText)
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	call PrintText
+	ld a, [wCurMap]
+	call SwitchToMapRomBank
+	jp TextScriptEnd
 
-	para "<⋯>おうぼ　ほうほうは"
-
-	para "<⋯>あら　きりとって　ある！"
-	done
