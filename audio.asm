@@ -17,6 +17,9 @@ SECTION "Sound Effects 1", ROMX
 
 INCLUDE "audio/noise_wave_common.asm"
 
+IF HEADROOM_STRIP_ALL_AUDIO
+INCLUDE "audio/headroom/all_audio_stubs.asm"
+ELSE
 IF HEADROOM_STRIP_CORE_SFX
 INCLUDE "audio/headroom/sfx1_stubs.asm"
 ELSE
@@ -57,6 +60,7 @@ INCLUDE "audio/sfx/safari_zone_pa.asm"
 
 INCLUDE "audio/cry_common.asm"
 ENDC
+ENDC
 
 
 SECTION "Audio Engine 1", ROMX
@@ -72,6 +76,7 @@ INCLUDE "audio/play_battle_music.asm"
 
 SECTION "Music 1", ROMX
 
+IF !HEADROOM_STRIP_ALL_AUDIO
 IF HEADROOM_STRIP_OPTIONAL_MUSIC
 INCLUDE "audio/headroom/music1_stubs.asm"
 ELSE
@@ -108,6 +113,7 @@ INCLUDE "audio/sfx/pokedex_rating.asm"
 INCLUDE "audio/sfx/get_item2.asm"
 INCLUDE "audio/sfx/get_key_item.asm"
 ENDC
+ENDC
 
 
 ; Audio Engine 2 (Bank $08)
@@ -139,6 +145,7 @@ SECTION "Sound Effects 2", ROMX
 
 INCLUDE "audio/noise_wave_common.asm"
 
+IF !HEADROOM_STRIP_ALL_AUDIO
 IF HEADROOM_STRIP_OPTIONAL_SFX
 INCLUDE "audio/headroom/sfx2_stubs.asm"
 ELSE
@@ -205,10 +212,12 @@ INCLUDE "audio/sfx/battle_36.asm"
 
 INCLUDE "audio/cry_common.asm"
 ENDC
+ENDC
 
 
 SECTION "Music 2", ROMX
 
+IF !HEADROOM_STRIP_ALL_AUDIO
 IF HEADROOM_STRIP_CORE_SFX
 INCLUDE "audio/headroom/music2_sfx_stubs.asm"
 ELSE
@@ -233,6 +242,7 @@ INCLUDE "audio/sfx/level_up.asm"
 INCLUDE "audio/sfx/get_item2.asm"
 INCLUDE "audio/sfx/caught_mon.asm"
 ENDC
+ENDC
 
 
 ; Audio Engine 3 (Bank $1F)
@@ -240,10 +250,12 @@ ENDC
 
 SECTION "Audio Engine 3", ROMX
 
+IF !HEADROOM_STRIP_ALL_AUDIO
 IF HEADROOM_STRIP_OPTIONAL_MUSIC
 INCLUDE "audio/headroom/audio3_stubs.asm"
 ELSE
 INCLUDE "audio/music/credits.asm"
+ENDC
 ENDC
 INCLUDE "audio/pokedex_rating_sfx.asm"
 INCLUDE "audio/engine_3.asm"
@@ -265,6 +277,7 @@ SECTION "Sound Effects 3", ROMX
 
 INCLUDE "audio/noise_wave_common.asm"
 
+IF !HEADROOM_STRIP_ALL_AUDIO
 IF HEADROOM_STRIP_OPTIONAL_SFX
 INCLUDE "audio/headroom/sfx3_stubs.asm"
 ELSE
@@ -313,10 +326,12 @@ INCLUDE "audio/sfx/shooting_star.asm"
 
 INCLUDE "audio/cry_common.asm"
 ENDC
+ENDC
 
 
 SECTION "Music 3", ROMX
 
+IF !HEADROOM_STRIP_ALL_AUDIO
 IF HEADROOM_STRIP_OPTIONAL_MUSIC
 INCLUDE "audio/headroom/music3_stubs.asm"
 ELSE
@@ -346,4 +361,5 @@ INCLUDE "audio/sfx/get_item1.asm"
 INCLUDE "audio/sfx/pokedex_rating.asm"
 INCLUDE "audio/sfx/get_item2.asm"
 INCLUDE "audio/sfx/get_key_item.asm"
+ENDC
 ENDC

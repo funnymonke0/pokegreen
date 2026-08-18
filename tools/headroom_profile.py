@@ -8,6 +8,7 @@ OPTIONS_PATH = Path("constants/headroom_options.asm")
 
 PROFILES: dict[str, dict[str, int]] = {
     "default": {
+        "HEADROOM_STRIP_ALL_AUDIO": 0,
         "HEADROOM_STRIP_UNUSED_AUDIO": 0,
         "HEADROOM_STRIP_OPTIONAL_MUSIC": 0,
         "HEADROOM_STRIP_OPTIONAL_BATTLE_MUSIC": 0,
@@ -15,6 +16,7 @@ PROFILES: dict[str, dict[str, int]] = {
         "HEADROOM_STRIP_CORE_SFX": 0,
     },
     "unused-audio": {
+        "HEADROOM_STRIP_ALL_AUDIO": 0,
         "HEADROOM_STRIP_UNUSED_AUDIO": 1,
         "HEADROOM_STRIP_OPTIONAL_MUSIC": 0,
         "HEADROOM_STRIP_OPTIONAL_BATTLE_MUSIC": 0,
@@ -22,6 +24,7 @@ PROFILES: dict[str, dict[str, int]] = {
         "HEADROOM_STRIP_CORE_SFX": 0,
     },
     "aggressive-audio": {
+        "HEADROOM_STRIP_ALL_AUDIO": 0,
         "HEADROOM_STRIP_UNUSED_AUDIO": 1,
         "HEADROOM_STRIP_OPTIONAL_MUSIC": 1,
         "HEADROOM_STRIP_OPTIONAL_BATTLE_MUSIC": 1,
@@ -29,6 +32,15 @@ PROFILES: dict[str, dict[str, int]] = {
         "HEADROOM_STRIP_CORE_SFX": 0,
     },
     "extreme-audio": {
+        "HEADROOM_STRIP_ALL_AUDIO": 0,
+        "HEADROOM_STRIP_UNUSED_AUDIO": 1,
+        "HEADROOM_STRIP_OPTIONAL_MUSIC": 1,
+        "HEADROOM_STRIP_OPTIONAL_BATTLE_MUSIC": 1,
+        "HEADROOM_STRIP_OPTIONAL_SFX": 1,
+        "HEADROOM_STRIP_CORE_SFX": 1,
+    },
+    "no-audio": {
+        "HEADROOM_STRIP_ALL_AUDIO": 1,
         "HEADROOM_STRIP_UNUSED_AUDIO": 1,
         "HEADROOM_STRIP_OPTIONAL_MUSIC": 1,
         "HEADROOM_STRIP_OPTIONAL_BATTLE_MUSIC": 1,
