@@ -63,7 +63,10 @@ RGBGFXFLAGS  ?= -Weverything
 	clean \
 	tidy \
 	compare \
-	tools
+	tools \
+	repoint-text \
+	headroom-default \
+	headroom-unused-audio
 
 all: $(roms)
 red:        pokered.gb
@@ -103,6 +106,15 @@ compare: $(roms) $(patches)
 
 tools:
 	$(MAKE) -C tools/
+
+repoint-text:
+	python3 tools/repoint_text.py --apply
+
+headroom-default:
+	python3 tools/headroom_profile.py --profile default
+
+headroom-unused-audio:
+	python3 tools/headroom_profile.py --profile unused-audio
 
 
 RGBASMFLAGS += -Q8 -P includes.asm

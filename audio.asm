@@ -75,7 +75,9 @@ INCLUDE "audio/music/routes_3.asm"
 INCLUDE "audio/music/routes_4.asm"
 INCLUDE "audio/music/indigo_plateau.asm"
 INCLUDE "audio/music/pallet_town.asm"
+IF !HEADROOM_STRIP_UNUSED_AUDIO
 INCLUDE "audio/music/unused_song.asm"
+ENDC
 INCLUDE "audio/music/cities_1.asm"
 INCLUDE "audio/sfx/get_item1.asm"
 INCLUDE "audio/music/museum_guy.asm"
@@ -191,7 +193,9 @@ INCLUDE "audio/cry_common.asm"
 SECTION "Music 2", ROMX
 
 INCLUDE "audio/sfx/pokeflute_ch5_ch6.asm"
+IF !HEADROOM_STRIP_UNUSED_AUDIO
 INCLUDE "audio/sfx/unused_fanfare.asm"
+ENDC
 INCLUDE "audio/music/gym_leader_battle.asm"
 INCLUDE "audio/music/trainer_battle.asm"
 INCLUDE "audio/music/wild_battle.asm"

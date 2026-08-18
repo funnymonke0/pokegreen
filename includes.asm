@@ -14,6 +14,7 @@ INCLUDE "macros/scripts/events.asm"
 INCLUDE "macros/scripts/text.asm"
 
 INCLUDE "constants/charmap.asm"
+INCLUDE "constants/headroom_options.asm"
 INCLUDE "constants/hardware.inc"
 INCLUDE "constants/oam_constants.asm"
 INCLUDE "constants/ram_constants.asm"

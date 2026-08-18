@@ -1,6 +1,8 @@
 ; This file is INCLUDEd three times, once for each audio engine.
 
+IF !HEADROOM_STRIP_UNUSED_AUDIO
 INCLUDE "audio/sfx/unused_cry.asm"
+ENDC
 INCLUDE "audio/sfx/cry09.asm"
 INCLUDE "audio/sfx/cry23.asm"
 INCLUDE "audio/sfx/cry24.asm"
